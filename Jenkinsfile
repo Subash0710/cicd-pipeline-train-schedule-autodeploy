@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         //be sure to replace "bhavukm" with your own Docker Hub username
-        DOCKER_IMAGE_NAME = "subash0710/train-schedule"
+        DOCKER_IMAGE_NAME = "subash0710/master"
     }
     stages {
         stage('Build') {
@@ -13,9 +13,9 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
-            /*when {
+            when {
                 branch 'master'
-            }*/
+            }
             steps {
                 script {
                     app = docker.build(DOCKER_IMAGE_NAME)
